@@ -1,0 +1,8 @@
+body {
+    background-color: #eee;
+}
+
+canvas#target-canvas {
+    height: 320px;
+    width: 320px;
+}
