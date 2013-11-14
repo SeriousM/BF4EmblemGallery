@@ -1,38 +1,3 @@
-var completeData = function(data){
-    var baseUrl = data.staticPrefix;
-    
-    _.each(data.badgeParts, function(item){
-        item.fullSrc = baseUrl + item.src + ".svg";
-        item.localSrc = "/assets/" + item.title + ".svg";
-    });
-};
-
-var printAssetList = function(data, $target){
-    
-//    $target.append('<object type="image/svg+xml" data="'+data.badgeParts.Number3.localSrc+'"/>');
-//    return;
-    _.each(data.badgeParts, function(item){
-        //$target.append('<a href="'+item.fullSrc+'">'+item.fullSrc+'</a><br />');
-        $target.append('<object type="image/svg+xml" data="'+item.localSrc+'"/>');
-    });
-}
-
-var finishAssetPaths = function(data, fabric_data){
-    _.each(fabric_data.objects, function(item){
-        item.path = data.badgeParts[item.asset].localSrc;
-    });
-}
-
-var loadEmblemData = function(text){
-    text = text.trim();
-    if (text.indexOf("emblem.emblem") >= 0){
-        text = /emblem.emblem.load\(([.\S\s]*)\);?/.exec(text)[1];
-    }
-    
-    emblem.emblem.clear();
-    emblem.emblem.load(text);
-};
-
 // prerequisites
 var clientside = {};
 var S = {
@@ -61,6 +26,7 @@ window.emblem = {};
             this.loaded = false;
             this.headless = false;
             this.data = false;
+            this.logging = true;
             var element;
             if (elementId) {
                 element = document.getElementById(elementId);
@@ -93,17 +59,17 @@ window.emblem = {};
         }
         F.OBJECT_DEFAULTS = {left: 50,top: 50,angle: 0,width: 100,height: 100,opacity: 1,fill: "#353535",flipX: false,flipY: false,selectable: true};
         F.log = function() {
-            if (typeof console !== "undefined" && console.log && console.log.apply) {
+            if (this.logging && typeof console !== "undefined" && console.log && console.log.apply) {
                 console.log.apply(console, arguments);
             }
         };
         F.debug = function() {
-            if (typeof console !== "undefined" && console.debug && console.debug.apply) {
+            if (this.logging && typeof console !== "undefined" && console.debug && console.debug.apply) {
                 console.debug.apply(console, arguments);
             }
         };
         F.info = function() {
-            if (typeof console !== "undefined" && console.info && console.info.apply) {
+            if (this.logging && typeof console !== "undefined" && console.info && console.info.apply) {
                 console.info.apply(console, arguments);
             }
         };
@@ -321,10 +287,11 @@ window.emblem = {};
     }
 })();
 
-var init = function(){
-    emblem.emblem = new emblem.EmblemClass("emblem-canvas");
-    emblem.emblem.assetsPath = "/assets/";
+var initEmblem = function(canvasElementId, assetsPath){
+    emblem.emblem = new emblem.EmblemClass(canvasElementId);
+    emblem.emblem.assetsPath = assetsPath;
     emblem.emblem.clear = function(){
         emblem.emblem.canvas.clear();
     };
+    emblem.emblem.logging = false;
 };
