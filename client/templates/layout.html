@@ -1,0 +1,15 @@
+<template name="layout">
+  <nav class="navbar navbar-default" role="navigation">
+    <a class="navbar-brand" href="{{pathFor 'home'}}">Title</a>
+    <div class="nav navbar-nav navbar-right" id="account-buttons">
+      {{#if currentUser}}<span>{{currentUser}}</span>{{/if}}{{loginButtons}}
+    </div>
+  </nav>
+  <div class="container">
+    <!-- the main template will be rendered here -->
+    {{yield}}
+  </div>
+  <div class="container">
+    {{>logs_bootstrap}}
+  </div>
+</template>

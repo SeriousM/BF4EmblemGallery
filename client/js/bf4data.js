@@ -1,6 +1,6 @@
 // looted from the edit-emblem page (index): http://battlelog.battlefield.com/bf4/emblem/edit/personal/2955059549748214855/176670573/1/
 
-var bf4data = {
+window.bf4data = {
     "staticPrefix": "http:\/\/battlelog-cdn.battlefield.com\/cdnprefix\/288d9afd0553cbdb",
     "badgeParts": {
         "Handshake": {

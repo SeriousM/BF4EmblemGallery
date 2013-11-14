@@ -1,0 +1,9 @@
+{
+  "packages": {
+    "observatory": {},
+    "bootstrap-3": {},
+    "iron-router": {},
+    "font-awesome": {},
+    "npm": {}
+  }
+}
