@@ -69,4 +69,4 @@ Template.upload.events
       foundAt: foundAt
       userId: userId
       layers: layers
-      created_on: created_on
+      createdOn: created_on
