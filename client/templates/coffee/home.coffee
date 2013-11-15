@@ -3,13 +3,13 @@ Template.home.events
     loadEmblem $('#emblem-data').val()
   "click #example-1": ->
     clearEmblem()
-    $.getScript "http://pastebin.com/raw.php?i=aACPH8Wk" # will execute the script anyway - BAD!!
+    $.getScript "http://pastebin.com/raw.php?i=aACPH8Wk", disableEmblemInteractivity # will execute the script anyway - BAD!!
   "click #example-2": ->
     clearEmblem()
-    $.getScript "http://pastebin.com/raw.php?i=5CzFsi8E" # will execute the script anyway - BAD!!
+    $.getScript "http://pastebin.com/raw.php?i=5CzFsi8E", disableEmblemInteractivity # will execute the script anyway - BAD!!
   "click #example-3": ->
     clearEmblem()
-    $.getScript "http://pastebin.com/raw.php?i=yWXQSHc6" # will execute the script anyway - BAD!!
+    $.getScript "http://pastebin.com/raw.php?i=yWXQSHc6", disableEmblemInteractivity # will execute the script anyway - BAD!!
   "click #scale-50": ->
     $('#emblem-canvas').parent().addClass('scale50').removeClass('scale75').removeClass('scale100')
   "click #scale-75": ->
