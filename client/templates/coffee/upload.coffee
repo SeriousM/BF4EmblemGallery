@@ -14,7 +14,7 @@ Template.upload.events
     emblemName = $name.val().trim()
     creator = $creator.val().trim()
     foundAt = $foundAt.val().trim()
-    userId = 0
+    userId = Meteor.user()._id
     premium = $premium?
     created_on = new Date().getTime()
     
@@ -28,6 +28,9 @@ Template.upload.events
     layers = emblemDataObject.objects.length
     
     return if layers is 0
+    
+    _.each emblemDataObject.objects, (item) ->
+      item.selectable = false
     
     emblemData = JSON.stringify(emblemDataObject)
     
