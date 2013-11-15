@@ -1,1 +1,1 @@
-@logger = Observatory.getToolbox()
+@logger = console
