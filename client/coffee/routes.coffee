@@ -4,6 +4,7 @@ Router.configure layoutTemplate: 'layout'
 
 Router.map ->
   @route 'home', path: '/'
+  @route 'emblem', path: '/e/:_id'
   @route 'upload', path: '/add'
   @route 'test', path: '/test'
   @route 'notFound', path: '*'

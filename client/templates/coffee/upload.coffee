@@ -37,17 +37,17 @@ Template.upload.events
     
     layers = emblemDataObject.objects.length
     
-    return if layers is 0
+    return if layers is 0 or layers > 40
     
     premiumKeys = _.chain(bf4data.badgeParts).where({isPremium: true}).pluck("title").value()
     unlockKeys = _.chain(bf4data.badgeParts).where({isUnlock: true}).pluck("title").value()
     currentKeys = _.chain(emblemDataObject.objects).pluck("asset").uniq().value()
     
-    isPremium = _.all currentKeys, (v) ->
-      _.include premiumKeys, v
-    
-    isUnlockable = _.all currentKeys, (v) ->
-      _.include unlockKeys, v
+    isPremium = _.some currentKeys, (key) ->
+      _.contains premiumKeys, key
+
+    isUnlockable = _.some currentKeys, (key) ->
+      _.contains unlockKeys, key
     
     _.each emblemDataObject.objects, (item) ->
       item.selectable = false
@@ -58,7 +58,7 @@ Template.upload.events
     
     return if Emblems.findOne({hash:emblemHash})?
     
-    Emblems.insert
+    id = Emblems.insert
       data: emblemData
       name: emblemName
       banned: false
@@ -70,3 +70,5 @@ Template.upload.events
       userId: userId
       layers: layers
       createdOn: created_on
+    
+    Router.go('emblem', {_id: id})

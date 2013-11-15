@@ -1,0 +1,29 @@
+<template name="emblem">
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Requires Premium</td>
+            <td>Requires Unlocks</td>
+          </tr>
+        </thead>
+        <tr>
+          <td>{{emblem.name}}</td>
+          <td>{{emblem.isPremium}}</td>
+          <td>{{emblem.isUnlockable}}</td>
+        </tr>
+      </table>
+      {{#if currentUser.admin}}
+      <button type="button" class="btn btn-warning delete-emblem">delete!</button>
+      {{/if}}
+      <a href="{{pathFor 'upload'}}">Add a new here!</a>
+    </div>
+    <div class="col-md-4">
+      <div id="emblem-preview-area" style="display: none;">
+        {{>emblem_preview}}
+      </div>
+    </div>
+  </div>
+</template>
