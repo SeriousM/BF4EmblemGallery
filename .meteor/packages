@@ -6,15 +6,12 @@
 standard-app-packages
 insecure
 preserve-inputs
-accounts-github
 coffeescript
 underscore
 jquery
 showdown
 stylus
 observatory
-accounts-google
-accounts-github
 bootstrap-3
 accounts-ui
 iron-router
