@@ -1,6 +1,6 @@
 Template.upload.events
   "submit #upload-form": ->
-    # todo: add user friendly error messages (toast?)
+    # todo: add user friendly error messages (toast?) + if found, show link to existing one
     
     event.preventDefault()
     

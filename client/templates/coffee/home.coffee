@@ -1,5 +1,6 @@
 Template.home.rendered =->
   # change this implementation to use something like $.on(...)
+  # warning: this renders all the time when the collection changes
   initEmblem "emblem-canvas", "bf4shapes/", false
 
 Template.browser.emblems =->
@@ -13,4 +14,7 @@ Template.browser.events
     $(event.target).closest('table').find('tr').removeClass('active')
     $(event.target).closest('tr').addClass('active')
     
-    loadEmblemWithId @._id
+    text = loadEmblemWithId @._id
+    
+    if text?
+      

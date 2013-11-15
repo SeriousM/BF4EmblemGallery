@@ -11,6 +11,7 @@ window.loadEmblemWithId = (id) ->
   window.clearEmblem()
   emblem.emblem.load text
   window.disableEmblemInteractivity()
+  text
 
 window.clearEmblem = ->
   emblem.emblem.clear()
