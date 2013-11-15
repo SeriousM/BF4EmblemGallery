@@ -1,5 +1,7 @@
 Template.upload.events
   "submit #upload-form": ->
+    # todo: add user friendly error messages (toast?)
+    
     event.preventDefault()
     
     $data = $('.upload #upload-text')
@@ -15,6 +17,8 @@ Template.upload.events
     userId = 0
     premium = $premium?
     created_on = new Date().getTime()
+    
+    return if Emblems.findOne({name:emblemName})?
     
     return if emblemData.length == 0
     

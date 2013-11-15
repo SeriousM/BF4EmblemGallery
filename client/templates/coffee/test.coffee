@@ -16,6 +16,3 @@ Template.test.events
     $('#emblem-canvas').parent().removeClass('scale50').addClass('scale75').removeClass('scale100')
   "click #scale-100": ->
     $('#emblem-canvas').parent().removeClass('scale50').removeClass('scale75').addClass('scale100')
-
-Template.test.rendered =->
-  initEmblem("emblem-canvas", "bf4shapes/", false)

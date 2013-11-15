@@ -1,0 +1,25 @@
+<template name="home">
+  <div class="row">
+    <div class="col-md-8">
+      {{>browser}}
+    </div>
+    <div class="col-md-4">
+      <canvas id="emblem-canvas"></canvas>
+    </div>
+  </div>
+</template>
+
+<template name="browser">
+  <table class="table">
+    {{#each emblems}}
+      <tr>
+        <td>
+          <p>{{name}}</p>
+        </td>
+        <td>
+          <button type="button" class="btn btn-default show">show!</button>
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+</template>

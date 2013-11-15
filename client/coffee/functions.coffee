@@ -5,6 +5,13 @@ window.loadEmblem = (text) ->
   emblem.emblem.load text
   window.disableEmblemInteractivity()
 
+window.loadEmblemWithId = (id) ->
+  text = Emblems.findOne({_id:id}, {fields: {'data': 1}})?.data
+  return if !text?
+  window.clearEmblem()
+  emblem.emblem.load text
+  window.disableEmblemInteractivity()
+
 window.clearEmblem = ->
   emblem.emblem.clear()
 
