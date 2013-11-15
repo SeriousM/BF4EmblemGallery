@@ -1,13 +1,13 @@
 <template name="upload">
   <div class="upload" style="border: 1px red;">
     <h1>Upload</h1>
-    <form id="upload-form">
-      <input id="name" type="text" placeholder="emblems title" required /><br />
-      <input id="creator" type="text" placeholder="creator's name" required /><br />
-      <input id="foundAt" type="url" placeholder="found at: http://..." required /><br />
-      <label>Premium?</label><input id="premium" type="checkbox" /><br />
-      <textarea id="upload-text" placeholder="emblem data" required></textarea><br />
-      <button id="upload-it">Upload it!</button>
+    <form id="upload-form" role="form">
+      <input id="name" type="text" class="form-control" placeholder="emblems title" required />
+      <input id="creator" type="text" class="form-control" placeholder="creator's name" required />
+      <input id="foundAt" type="url" class="form-control" placeholder="found at: http://..." required />
+      <textarea id="upload-text" class="form-control" rows="3" placeholder="emblem data" required></textarea>
+      <button id="upload-it" class="btn btn-default" type="submit">Upload it!</button>
+      <button id="clear" class="btn btn-default" type="reset">Clear form!</button>
     </form>
   </div>
 </template>
