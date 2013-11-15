@@ -4,4 +4,4 @@
 #    Posts.find owner: @.userId
 
 Meteor.publish "emblems", ->
-  Emblems.find
+  Emblems.find()
