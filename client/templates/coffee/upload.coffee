@@ -40,10 +40,14 @@ Template.upload.events
     return if layers is 0
     
     premiumKeys = _.chain(bf4data.badgeParts).where({isPremium: true}).pluck("title").value()
+    unlockKeys = _.chain(bf4data.badgeParts).where({isUnlock: true}).pluck("title").value()
     currentKeys = _.chain(emblemDataObject.objects).pluck("asset").uniq().value()
     
-    premium = _.all currentKeys, (v) ->
+    isPremium = _.all currentKeys, (v) ->
       _.include premiumKeys, v
+    
+    isUnlockable = _.all currentKeys, (v) ->
+      _.include unlockKeys, v
     
     _.each emblemDataObject.objects, (item) ->
       item.selectable = false
@@ -58,7 +62,8 @@ Template.upload.events
       data: emblemData
       name: emblemName
       banned: false
-      premium: premium
+      isPremium: isPremium
+      isUnlockable: isUnlockable
       hash: emblemHash
       creator: creator
       foundAt: foundAt
