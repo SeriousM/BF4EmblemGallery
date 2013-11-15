@@ -6,7 +6,10 @@
           <p>{{name}}</p>
         </td>
         <td>
-          <button type="button" class="btn btn-default show">show!</button>
+          <button type="button" class="btn btn-default show-emblem">show!</button>
+          {{#if currentUser.admin}}
+          <button type="button" class="btn btn-warning delete-emblem">delete!</button>
+          {{/if}}
         </td>
       </tr>
     {{/each}}

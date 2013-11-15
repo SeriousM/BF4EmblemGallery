@@ -2,7 +2,7 @@ Template.browser.emblems =->
   Emblems.find {}, {fields: {'name': 1}}
 
 Template.browser.events
-  "click .show": ->
+  "click .show-emblem": ->
     return if Session.get "active_emblem" is @._id
     Session.set "active_emblem", @._id
     
@@ -14,3 +14,6 @@ Template.browser.events
     if text?
       $emblemCode = $('#emblem-code')
       $emblemCode.val "emblem.emblem.load(" + text + ");"
+  
+  "click .delete-emblem": ->
+    Emblems.remove {_id: @._id}
