@@ -4,27 +4,7 @@
       {{>browser}}
     </div>
     <div class="col-md-4">
-      <p>Preview:</p>
-      <canvas id="emblem-canvas"></canvas>
-      <p>Emblem Code:</p>
-      <textarea id="emblem-code" cols="20"></textarea>
-      <br />
-      <a href="https://gist.github.com/cowboy/6815966" target="_blank">How to inster into BF4</a>
+      {{>emblem_preview}}
     </div>
   </div>
-</template>
-
-<template name="browser">
-  <table class="table">
-    {{#each emblems}}
-      <tr>
-        <td>
-          <p>{{name}}</p>
-        </td>
-        <td>
-          <button type="button" class="btn btn-default show">show!</button>
-        </td>
-      </tr>
-    {{/each}}
-  </table>
 </template>
