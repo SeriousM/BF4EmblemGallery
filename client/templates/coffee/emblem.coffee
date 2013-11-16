@@ -25,5 +25,5 @@ Template.emblem.emblem =->
 
 Template.emblem.events
   "click .delete-emblem": ->
-    Emblems.remove {_id: @._id}
+    Emblems.remove {_id: Router.current().params._id}
     Router.go('home')
