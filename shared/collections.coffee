@@ -24,7 +24,6 @@ Emblems.allow
   
   remove: (userId, doc) ->
     return false unless doc? or user?
-    checkDoc doc
     Meteor.call('isAdmin')
 
   update: (userId, doc) ->
