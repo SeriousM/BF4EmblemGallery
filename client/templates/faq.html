@@ -1,0 +1,40 @@
+<template name="faq">
+  <h3>Exporting an emblem</h3>
+  <ol>
+    <li>Log into <a href="http://battlelog.battlefield.com/bf4/" target="_blank">BF4 Battlelog</a>.</li>
+    <li>Visit the <a href="http://battlelog.battlefield.com/bf4/emblem/edit/personal" target="_blank">Customize emblem</a> page.</li>
+    <li>Select the emblem you wish to export.</li>
+    <li>Open the console (Ctrl-Shift-J).</li>
+    <li>Enter the following code snippet to copy the raw emblem data to the clipboard:</li>
+    <li><code>copy('emblem.emblem.load('+JSON.stringify(emblem.emblem.data,null,2)+');');</code></li>
+    <li>Close the console (Ctrl-Shift-J).</li>
+    <li>Add it <a href="{{pathFor 'upload'}}">HERE</a>.</li>
+  </ol>
+  <h3>Importing an emblem</h3>
+  <ol>
+    <li>Log into <a href="http://battlelog.battlefield.com/bf4/" target="_blank">BF4 Battlelog</a>.</li>
+    <li>Visit the <a href="http://battlelog.battlefield.com/bf4/emblem/edit/personal" target="_blank">Customize emblem</a> page.</li>
+    <li>Click the "+ ADD" button to create a new, blank, emblem.</li>
+    <li>Open the console (Ctrl-Shift-J).</li>
+    <li>
+      Paste the contents of a previously-exported emblem into the console and press Enter,
+      <br />
+      making sure you get everything, from the <code>emblem.emblem.load</code> to the ending <code>;</code>.
+    </li>
+    <li>You should now see the emblem loaded with all its layers</li>
+    <li>Close the console (Ctrl-Shift-J).</li>
+    <li>Click the "SAVE &amp; USE" button in the top right.</li>
+  </ol>
+  <h3>Notes</h3>
+  <ol>
+    <li>Premium members have a 40 object limit per emblem.</li>
+    <li>Non-premium members have a 20 object limit per emblem.</li>
+    <li>Only tested in Chrome browser.</li>
+  </ol>
+  <h3>Copyrights</h3>
+  <ul>
+    <li><a href="https://gist.github.com/cowboy/6815966" target="_blank">Cowboy's Gist</a> was a great help</li>
+    <li>Shapes used to produce the preview are taken from EA / Dice (thanks!)</li>
+    <li>Idea &amp; implementation by <a href="http://root-project.org" target="_bank">SeriousM (Bernhard Millauer)</a></li>
+  </ul>
+</template>
