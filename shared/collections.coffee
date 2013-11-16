@@ -11,7 +11,8 @@ checkDoc = (doc) ->
   check doc.isPremium, Boolean
   check doc.isUnlockable, Boolean
   check doc.hash, Number
-  check doc.foundAt, String
+  check doc.foundAt, String if doc.foundAt?
+  check doc.creator, String if doc.creator?
   check doc.userId, String
   check doc.layers, Number
   check doc.createdOn, Number
@@ -19,7 +20,6 @@ checkDoc = (doc) ->
 Emblems.allow
   insert: (userId, doc) ->
     return false unless doc? or user?
-    checkDoc doc
     true
   
   remove: (userId, doc) ->
@@ -31,3 +31,11 @@ Emblems.allow
     return false unless doc? or user?
     checkDoc doc
     Meteor.call('isAdmin')
+
+if Meteor.isServer
+  Emblems.before.insert (userId, doc) ->
+    doc.createdOn = new Date().getTime()
+    doc.userId = Meteor.user()._id
+    doc.banned = false
+    doc.hash = doc.data.toLowerCase().hashCode()
+    checkDoc doc

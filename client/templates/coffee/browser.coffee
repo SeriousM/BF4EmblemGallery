@@ -1,5 +1,5 @@
 Template.browser.emblems =->
-  Emblems.find {}, {fields: {name: 1, isPremium: 1, isUnlockable: 1}, sort: {createdOn: -1}, limit: 10}
+  Emblems.find {}, {fields: {name: 1, isPremium: 1, isUnlockable: 1, layers: 1}, sort: {createdOn: -1}, limit: 10}
 
 Template.browser.events
   "click .show-emblem": ->

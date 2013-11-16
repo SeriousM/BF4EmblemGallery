@@ -1,14 +1,48 @@
 <template name="upload">
   {{#if currentUser}}
   <div class="upload" style="border: 1px red;">
+    <div id="error-box" class="alert alert-danger" style="display: none;">
+      <strong>Warning!</strong> <span id="error-message"></span>
+    </div>
+    <div id="found-box" class="alert alert-success" style="display: none;">
+      <strong>Warning!</strong> It seems this emblem was already added. <a href="" id="found-link" class="alert-link">Check it out!</a>
+    </div>
     <h3>Upload</h3>
-    <form id="upload-form" role="form">
-      <input id="name" type="text" class="form-control" placeholder="emblems title" required />
-      <input id="creator" type="text" class="form-control" placeholder="creator's name" required />
-      <input id="foundAt" type="url" class="form-control" placeholder="found at: http://..." required />
-      <textarea id="upload-text" class="form-control" rows="3" placeholder="emblem data" required></textarea>
-      <button id="upload-it" class="btn btn-default" type="submit">Add it!</button>
-      <button id="clear" class="btn btn-default" type="reset">Clear form!</button>
+    <form id="upload-form" role="form" class="form-horizontal">
+      <div class="form-group">
+        <label for="name" class="col-sm-2 control-label"><abbr title="required">*</abbr> Emblem Title</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="name" placeholder="Emblem Title" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="creator" class="col-sm-2 control-label">Creator's Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="creator" placeholder="Creator's Name" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="foundAt" class="col-sm-2 control-label">Emblem found at?</label>
+        <div class="col-sm-10">
+          <input type="url" class="form-control" id="foundAt" placeholder="http://...." />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="upload-text" class="col-sm-2 control-label">
+          <abbr title="required">*</abbr> Emblem Data<br />
+          <small><a href="{{pathFor 'faq'}}">Need help?</a></small>
+        </label>
+        <div class="col-sm-10">
+          <textarea id="upload-text" class="form-control" rows="3" placeholder="Emblem Data" required></textarea>
+        </div>
+      </div>
+      
+       <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button id="upload-it" class="btn btn-primary" type="submit">Add it!</button>
+        </div>
+      </div>
+      
     </form>
   </div>
   {{else}}

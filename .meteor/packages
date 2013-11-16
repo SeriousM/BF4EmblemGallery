@@ -16,3 +16,5 @@ accounts-ui
 iron-router
 accounts-password
 npm
+collection-hooks
+handlebar-helpers

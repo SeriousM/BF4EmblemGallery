@@ -21,7 +21,7 @@ Template.emblem.rendered =->
     $emblemCode.val "emblem.emblem.load(" + text + ");"
 
 Template.emblem.emblem =->
-  Emblems.findOne {_id:Router.current().params._id}, {fields: {name: 1, isPremium: 1, isUnlockable: 1}}
+  Emblems.findOne {_id:Router.current().params._id}, {fields: {name: 1, isPremium: 1, isUnlockable: 1, layers: 1}}
 
 Template.emblem.events
   "click .delete-emblem": ->

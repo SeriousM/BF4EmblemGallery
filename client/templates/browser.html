@@ -3,18 +3,21 @@
   <table class="table">
     {{#each emblems}}
       <tr>
-        <td style="width: 73%;">
-          <a href="{{pathFor 'emblem'}}">{{name}}</a>
+        <td style="width: auto;">
+          <a href="{{pathFor 'emblem'}}">{{name}}</a> <span>({{layers}}<abbr title="Layers">L</abbr>)</span>
         </td>
-        <td style="width: 6%; text-align: right;">
+        <td style="width: 70px; text-align: right;">
           {{#if isPremium}}
-          <abbr title="premium required">P</abbr>
+          <abbr title="premium shapes required">PE</abbr>
+          {{/if}}
+          {{#if $gt layers 20}}
+          <abbr title="premium required for more than 20 layers">PL</abbr>
           {{/if}}
           {{#if isUnlockable}}
           <abbr title="additional unlocks required">U</abbr>
           {{/if}}
         </td>
-        <td>
+        <td style="width: 140px; text-align: right;">
           <button type="button" class="btn btn-default btn-sm show-emblem">show!</button>
           {{#if currentUser.admin}}
           <button type="button" class="btn btn-warning btn-sm delete-emblem">delete!</button>
