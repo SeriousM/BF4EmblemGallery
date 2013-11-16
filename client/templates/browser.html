@@ -3,13 +3,21 @@
   <table class="table">
     {{#each emblems}}
       <tr>
-        <td style="width: 79%;">
+        <td style="width: 73%;">
           <a href="{{pathFor 'emblem'}}">{{name}}</a>
         </td>
+        <td style="width: 6%; text-align: right;">
+          {{#if isPremium}}
+          <abbr title="premium required">P</abbr>
+          {{/if}}
+          {{#if isUnlockable}}
+          <abbr title="additional unlocks required">U</abbr>
+          {{/if}}
+        </td>
         <td>
-          <button type="button" class="btn btn-default show-emblem">show!</button>
+          <button type="button" class="btn btn-default btn-sm show-emblem">show!</button>
           {{#if currentUser.admin}}
-          <button type="button" class="btn btn-warning delete-emblem">delete!</button>
+          <button type="button" class="btn btn-warning btn-sm delete-emblem">delete!</button>
           {{/if}}
         </td>
       </tr>
